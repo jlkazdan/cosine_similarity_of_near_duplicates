@@ -86,6 +86,6 @@ class GradientComputer:
         
         # Clear gradients
         self.model.zero_grad()
-        torch.cuda.empty_cache()
+        # torch.cuda.empty_cache()
         
         return all_grad

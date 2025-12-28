@@ -7,16 +7,20 @@ import matplotlib.pyplot as plt
 import os
 
 
-REFRESH = False
+REFRESH = True
 SAVE_PATH = "/mnt/home/ServiceNowFundamentalResearch_scaling_of_memorization_gradients/notebooks/figures"
 
 
 
 api = wandb.Api()
 
+sweeps = ["0dcmiwqf", "lozdsw73"]
+
 if REFRESH:
-    sweep = api.sweep("jkazdan/gradient-similarity-transformations/0dcmiwqf")
-    runs = sweep.runs
+    runs = []
+    for sweep in sweeps:
+        sweep = api.sweep(f"jkazdan/gradient-similarity-transformations/{sweep}")
+        runs = runs + list(sweep.runs)
 
     # Combine all run histories
     all_metrics = []
