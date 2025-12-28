@@ -1,12 +1,15 @@
+import os
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+
 import torch
 import numpy as np
 from datasets import load_dataset
 from src.measure_gradients import GradientComputer
 from src.compute_similarities import compute_cosine_similarities
 import random
-import os
 from pathlib import Path
 import wandb
+
 
 def main():
     # Initialize wandb
