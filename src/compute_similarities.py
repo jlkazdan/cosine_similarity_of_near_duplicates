@@ -14,6 +14,7 @@ def compute_memory_efficient_dot_product(grad1, grad2):
     dot = 0
     
     for ele1, ele2 in zip(grad1, grad2):
+        print(torch.norm(ele1))
         norm1 += torch.norm(ele1).cpu()**2
         norm2 += torch.norm(ele2).cpu()**2
         dot += ele1.flatten().dot(ele2.flatten()).cpu()
