@@ -1,0 +1,24 @@
+program: scripts/compute_embeddings.py
+project: embed_fineweb
+method: grid
+metric:
+  name: final_texts_per_sec
+  goal: maximize
+parameters:
+  model_name:
+    values:
+      - google/embeddinggemma-300m
+  output_file:
+    values:
+      - data/embeddings/embeddings_gemma300m.npy
+  dataset_name:
+    value: fineweb-edu-dedup
+  max_seq_length:
+    value: 2000
+  batch_size:
+    value: 512
+  save_every:
+    value: 100000
+
+  tei_url:
+    value: "http://127.0.0.1:8080"   # or http://<node>:8080
