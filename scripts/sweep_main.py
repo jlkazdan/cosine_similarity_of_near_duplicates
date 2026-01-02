@@ -22,6 +22,7 @@ def main():
     dataset_name = config.dataset
     transformation = config.transformation
     num_examples = config.num_examples
+    revision = config.get("revision", None)
     
     # Load dataset
     dataset = load_dataset(dataset_name, split="train", streaming=True)
@@ -29,7 +30,7 @@ def main():
     examples = [example["text"] for example in subset]
 
     # Initialize the gradient computer
-    gradient_computer = GradientComputer(model_name)
+    gradient_computer = GradientComputer(model_name, revision=revision)
 
     # Set up output file path
     script_dir = Path(__file__).parent.resolve()
