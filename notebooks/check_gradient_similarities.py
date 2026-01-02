@@ -14,7 +14,7 @@ SAVE_PATH = "/mnt/home/ServiceNowFundamentalResearch_scaling_of_memorization_gra
 
 api = wandb.Api()
 
-sweeps = ["0dcmiwqf", "lozdsw73"]
+sweeps = ["0dcmiwqf", "lozdsw73", "xmd2ugac"]
 
 if REFRESH:
     runs = []
